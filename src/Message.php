@@ -1,10 +1,9 @@
 <?php
-
-namespace Sunshine\RabbitMQ;
+namespace Message\RabbitMQ;
 
 use PhpAmqpLib\Connection\AMQPStreamConnection;
 use PhpAmqpLib\Message\AMQPMessage;
-use Sunshine\RabbitMQ\Contracts\MessageInterface;
+use Message\RabbitMQ\Contracts\MessageInterface;
 
 class Message implements MessageInterface
 {
@@ -73,5 +72,21 @@ class Message implements MessageInterface
     {
         $this->channel->close();
         $this->conn->close();
+    }
+
+    /**
+     * 消息确认
+     * @param $message
+     * @return bool
+     */
+    public function ackMessage($message)
+    {
+        if (!($message instanceof AMQPMessage))
+        {
+            return false;
+        }
+        $message->delivery_info['channel']
+            ->basic_ack($message->delivery_info['delivery_tag']);
+        return true;
     }
 }

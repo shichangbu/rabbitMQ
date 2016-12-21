@@ -1,6 +1,6 @@
 <?php
 
-namespace Sunshine\RabbitMQ\Exceptions;
+namespace Message\RabbitMQ\Exceptions;
 
 namespace Wang\RabbitMQ\Exceptions;
 

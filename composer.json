@@ -16,7 +16,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "Sunshine\\RabbitMQ\\": "src/"
+            "Message\\RabbitMQ\\": "src/"
         }
     },
     "license": "MIT"

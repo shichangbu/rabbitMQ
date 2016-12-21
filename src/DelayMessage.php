@@ -1,11 +1,11 @@
 <?php
 
-namespace Sunshine\RabbitMQ;
+namespace Message\RabbitMQ;
 
 use PhpAmqpLib\Connection\AMQPStreamConnection;
 use PhpAmqpLib\Message\AMQPMessage;
 use PhpAmqpLib\Wire\AMQPTable;
-use Sunshine\RabbitMQ\Contracts\DelayMessageInterface;
+use Message\RabbitMQ\Contracts\DelayMessageInterface;
 
 class DelayMessage implements DelayMessageInterface
 {
@@ -91,5 +91,21 @@ class DelayMessage implements DelayMessageInterface
     {
         $this->channel->close();
         $this->conn->close();
+    }
+
+    /**
+     * 消息确认
+     * @param $message
+     * @return bool
+     */
+    public function ackMessage($message)
+    {
+        if (!($message instanceof AMQPMessage))
+        {
+            return false;
+        }
+        $message->delivery_info['channel']
+            ->basic_ack($message->delivery_info['delivery_tag']);
+        return true;
     }
 }

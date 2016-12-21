@@ -39,14 +39,17 @@ return 'success';
 ```php
 ### 消费普通消息
 $message = app(Message::class);
-$message->consume(function (AMQPMessage $message) {
-    var_dump(json_decode($message->body, true));
-});
+$message->consume('delay-queue', '', 'delay-exchange', 'direct', 'className', 'testConsume', 'describe');
+
 
 ### 消费延时消息
 $delayMessage = app(DelayedMessage::class);
-$delayMessage->delayConsume(function (AMQPMessage $message) {
-    var_dump(json_decode($message->body, true));
-});
+$delayMessage->delayConsume('delay-queue', '', 'delay-exchange', 'direct', 'className', 'testConsume', 'describe');
+
+
+function testConsume($message)
+{
+   var_dump(json_decode($message->body, true));
+}
 
 ```
