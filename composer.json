@@ -1,5 +1,5 @@
 {
-    "name": "Wangyan/rabbitmq-message",
+    "name": "wangyan/rabbitmq-message",
     "description": "rabbitmq  message for laravel.",
     "require": {
         "php": ">=5.5.0",
