@@ -1,0 +1,23 @@
+{
+    "name": "sunshine/rabbitmq-message",
+    "description": "rabbitmq  message for laravel.",
+    "require": {
+        "php": ">=5.5.0",
+        "php-amqplib/php-amqplib": "^2.6"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^1.12"
+    },
+    "authors": [
+        {
+            "name": "sunshine",
+            "email": "1490151657@qq.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Sunshine\\RabbitMQ\\": "src/"
+        }
+    },
+    "license": "MIT"
+}
