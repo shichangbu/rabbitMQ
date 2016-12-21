@@ -1,11 +1,10 @@
 <?php
-
-namespace Sunshine\RabbitMQ\Providers;
+namespace Queue\RabbitMQ\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use PhpAmqpLib\Connection\AMQPStreamConnection;
-use Sunshine\RabbitMQ\DelayMessage;
-use Sunshine\RabbitMQ\Message;
+use Queue\RabbitMQ\DelayMessage;
+use Queue\RabbitMQ\Message;
 
 /**
  * Created by PhpStorm.

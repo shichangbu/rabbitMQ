@@ -1,9 +1,9 @@
 <?php
-namespace Message\RabbitMQ;
+namespace Queue\RabbitMQ;
 
 use PhpAmqpLib\Connection\AMQPStreamConnection;
 use PhpAmqpLib\Message\AMQPMessage;
-use Message\RabbitMQ\Contracts\MessageInterface;
+use Queue\RabbitMQ\Contracts\MessageInterface;
 
 class Message implements MessageInterface
 {

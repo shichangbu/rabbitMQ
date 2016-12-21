@@ -1,11 +1,10 @@
 <?php
-
-namespace Message\RabbitMQ;
+namespace Queue\RabbitMQ;
 
 use PhpAmqpLib\Connection\AMQPStreamConnection;
 use PhpAmqpLib\Message\AMQPMessage;
 use PhpAmqpLib\Wire\AMQPTable;
-use Message\RabbitMQ\Contracts\DelayMessageInterface;
+use Queue\RabbitMQ\Contracts\DelayMessageInterface;
 
 class DelayMessage implements DelayMessageInterface
 {

@@ -1,8 +1,6 @@
 <?php
+namespace Queue\RabbitMQ\Exceptions;
 
-namespace Message\RabbitMQ\Exceptions;
-
-namespace Wang\RabbitMQ\Exceptions;
 
 class MQException extends \Exception
 {

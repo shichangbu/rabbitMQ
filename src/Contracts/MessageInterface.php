@@ -1,5 +1,5 @@
 <?php
-namespace Message\RabbitMQ\Contracts;
+namespace Queue\RabbitMQ\Contracts;
 
 interface MessageInterface
 {
