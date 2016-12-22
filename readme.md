@@ -3,7 +3,7 @@
 在`config/app.php`中加入：
 
 ```php
- Queue\RabbitMQ\RabbitmqServiceProvider::class
+ Queue\RabbitMQ\Providers\RabbitmqServiceProvider::class
 ```
 
 执行命令：
