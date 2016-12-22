@@ -6,12 +6,7 @@ use PhpAmqpLib\Connection\AMQPStreamConnection;
 use Queue\RabbitMQ\DelayMessage;
 use Queue\RabbitMQ\Message;
 
-/**
- * Created by PhpStorm.
- * User: wangyan
- * Date: 2016/12/21
- * Time: 13:54.
- */
+
 class RabbitmqServiceProvider extends ServiceProvider
 {
     /**
