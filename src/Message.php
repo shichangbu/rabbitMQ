@@ -53,7 +53,7 @@ class Message implements MessageInterface
 
         $consumer_tag = 'consumer'.$consumer_tag;
 
-        $this->channel->basic_consume($queue, $consumer_tag, false, false, true, false, call_user_func_array(array($className, $funcName), [$msg]));
+        $this->channel->basic_consume($queue, $consumer_tag, false, false, true, false, call_user_func_array($funcName, [$msg]));
 
         //如果出现异常，自动关闭
         function shutdown($channel, $conn)
