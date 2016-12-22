@@ -50,14 +50,12 @@ class DelayMessage implements DelayMessageInterface
      * 消费消息.
      *
      * @param $queue
-     * @param string $consumer_tag
+     * @param $consumer_tag
      * @param $exchange
-     * @param string $exchangeType
-     * @param $className
      * @param $funcName
-     * @param string $msg
+     * @param string $exchangeType
      */
-    public function delayConsumer($queue, $consumer_tag, $exchange, $exchangeType, $className, $funcName, $msg = '')
+    public function delayConsumer($queue, $consumer_tag, $exchange, $funcName, $exchangeType  = 'direct')
     {
         $this->channel->exchange_declare($exchange, 'x-delayed-message', false, true, false, false, false, new AMQPTable(array(
             'x-delayed-type' => 'direct',
@@ -71,15 +69,7 @@ class DelayMessage implements DelayMessageInterface
 
         $consumer_tag = 'consumer'.$consumer_tag;
 
-        $this->channel->basic_consume($queue, $consumer_tag, false, false, true, false, call_user_func_array(array($className, $funcName), [$msg]));
-
-        //如果出现异常，自动关闭
-        function shutdown($channel, $conn)
-        {
-            $channel->close();
-            $conn->close();
-        }
-        register_shutdown_function('shutdown', $this->channel, $this->conn);
+        $this->channel->basic_consume($queue, $consumer_tag, false, false, true, false, $funcName);
 
         while (count($this->channel->callbacks)) {
             $this->channel->wait();
