@@ -3,7 +3,7 @@
 在`config/app.php`中加入：
 
 ```php
- Sunshine\RabbitMQ\RabbitmqServiceProvider::class
+ Queue\RabbitMQ\RabbitmqServiceProvider::class
 ```
 
 执行命令：
