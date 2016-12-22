@@ -21,7 +21,7 @@ $message->publish([
     'name' => 'sunshine',
     'age' => 22,
 ], 'exchange', 'queue', 'direct');
-return 'success';return 'success';
+return 'success';
 
 ### 发布延时消息
 $delayMessage = app(DelayedMessage::class);
