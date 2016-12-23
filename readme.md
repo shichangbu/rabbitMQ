@@ -39,12 +39,12 @@ return 'success';
 ```php
 ### 消费普通消息
 $message = app(Message::class);
-$message->consume('delay-queue', 'consumer_tag', 'delay-exchange', 'callbackFunc', 'direct');
+$message->consumer('delay-queue', 'consumer_tag', 'delay-exchange', 'callbackFunc', 'direct');
 
 
 ### 消费延时消息
 $delayMessage = app(DelayedMessage::class);
-$delayMessage->delayConsume('delay-queue', 'consumer_tag', 'delay-exchange', 'callbackFunc', 'direct');
+$delayMessage->delayConsumer('delay-queue', 'consumer_tag', 'delay-exchange', 'callbackFunc', 'direct');
 
 
 function testConsume($message)
