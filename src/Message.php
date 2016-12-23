@@ -50,7 +50,7 @@ class Message implements MessageInterface
         $this->channel->queue_bind($queue, $exchange);
 
         $consumer_tag = 'consumer'.$consumer_tag;
-
+        $this->channel->basic_qos(0, 1, false); //read one message at a time
         $this->channel->basic_consume($queue, $consumer_tag, false, false, true, false, $funcName);
 
         while (count($this->channel->callbacks)) {
